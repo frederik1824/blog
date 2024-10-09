@@ -1,0 +1,134 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Hero Section -->
+<header class="row bg-black">
+  <div class="image col-md-4">
+    <img src="{% static 'portfolio/perfil11.png' %}" />
+  </div>
+
+  <div class="col-md-8 my-auto p-4">
+    <h1 class="text-muted">Yo soy </h1><h1><strong>Frederik Lopez Alcantara</strong></h1>
+    <h3>Estudiante de Ingenieria en Software Universidad de la <strong class="text-primary">UAPA</strong> </h3>
+    <section class="py-5">
+      <div class="container">
+          <h2 class="text-center">Sobre mí</h2>
+          <p class="text-center text-muted">Soy un apasionado del desarrollo de software y las tecnologías emergentes, con experiencia en la creación de soluciones innovadoras. Me especializo en programación, diseño de sistemas y gestión de proyectos, combinando creatividad y análisis técnico para ofrecer productos digitales efectivos y de alta calidad..</p>
+      </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-5 bg-gradient">
+      <div class="container">
+          <h2 class="text-center">Habilidades</h2>
+          <br>
+          <div class="row text-center">
+              <div class="col-md-4">
+                  <h4>Programación</h4>
+                  <p>Mas de 5 años innovando con las nuevas tegnologias y los diferentes framework.</p>
+              </div>
+              <div class="col-md-4">
+                  <h4>Lenguajes</h4>
+                 <ul>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javascript</li>
+                  <li>Python</li>
+                  <li>Bootstrap</li>
+                 </ul>
+              </div>
+              <div class="col-md-4">
+                  <h4>Gestión de proyectos</h4>
+                  <p>Trabajando con equipos de trabajo en distintas empresas desarrolando programas productivos.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="py-5">
+      <div class="container">
+          <h2 class="text-center">Experiencia</h2>
+          <ul class="list-unstyled">
+            <br>
+              <li>
+                  <h5>Desarrollador de Software en XYZ Company</h5>
+                  <p>Durante mi tiempo en XYZ Company, lideré el desarrollo de una plataforma de e-commerce con integración a pasarelas de pago, logrando un aumento del 30% en las ventas en línea..</p>
+              </li>
+              <br>
+              <li>
+                  <h5>Consultor en ABC Tech Solutions</h5>
+                  <p>Proporcioné soluciones a medida para la automatización de procesos empresariales, lo que resultó en una mejora del 40% en la eficiencia operativa para nuestros clientes.</p>
+              </li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="py-5 bg-gradient">
+      <div class="container">
+          <h2 class="text-center">Educación</h2>
+          <p class="text-center">Estudiante termino – Universidad UAPA</p>
+          <p class="text-center">Me especialicé en desarrollo de aplicaciones web y seguridad informática.</p>
+      </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="py-5">
+      <div class="container">
+          <h2 class="text-center">Proyectos</h2>
+          <div class="row">
+              <div class="col-md-6">
+                  <h5>Aplicación de gestión de tareas</h5>
+                  <p>Desarrollé una aplicación para la gestión interna de tareas en empresas, con funcionalidades como asignación de tareas, seguimiento de progreso y generación de reportes.</p>
+              </div>
+              <div class="col-md-6">
+                  <h5>Sitio web interactivo para comercio electrónico</h5>
+                  <p>Construí un sitio de comercio electrónico para una cadena de tiendas de ropa, integrando una experiencia de compra personalizada para los usuarios.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-5 bg-gradient text-white text-center">
+      <div class="container">
+          <h2>Contacto</h2>
+          <p>Correo: frederiklopez2418@gmail.com</p>
+          <p>Teléfono: +829-554-0303</p>
+      </div>
+  </section>
+    <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/cv.pdf' %}">Download my CV</a>
+  </div>
+</header>
+
+<!-- Porfolio Section -->
+<div class="row my-4 text-center">
+
+  <h3>Portafolios</h3>
+  <p>En este espacio estare cargando todos los proyectos que estare realizando en el transcurso de los dias</p>
+
+  {% for project in projects %}
+  <div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+      <img src="{{project.image.url }}" class="card-img-top" />
+
+      <div class="card-body">
+
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+
+        {% if project.url %}
+        <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Ver proyecto</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
